@@ -1,0 +1,319 @@
+body {
+    background-color: #d0ecd9;
+    display: inline-block;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#frame {
+    width: 98%;
+    height: 750px;
+    background-color: #FFFFFF;
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+#main-frame {
+    width: 550px;
+    height: 650px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin: 45px 30px 30px 30px;
+    box-shadow: 0 -10px 5px #E9FEED, 0 10px 5px #E9F3ED;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#username,
+#password,
+#remember,
+#submit #social-login {
+    margin: 20px 0;
+}
+
+input {
+    height: 50px;
+    width: 500px;
+    border: 2px solid #498553;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+#form {
+    margin-top: 35px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+#header {
+    font-size: 1.5rem;
+}
+
+h1 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: normal;
+    color: rgb(120, 119, 119)
+}
+
+#password span {
+    float: right;
+    margin-right: 25px;
+}
+
+#remember-button {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+#submit-button {
+    height: 50px;
+    width: 500px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #498553;
+    border: 2px solid #498553;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition-duration: 0.4s;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#submit-button:hover {
+    background-color: #E9F3ED;
+    color: #498553;
+}
+
+#google {
+    height: 50px;
+    width: 240px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #498553;
+    border: 2px solid #498553;
+    border-radius: 8px;
+    margin: 30px 6px 0 0;
+    color: #FFFFFF;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+
+#google:hover {
+    background-color: #E9F3ED;
+    color: #498553;
+}
+
+#facebook {
+    height: 50px;
+    width: 240px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #498553;
+    border: 2px solid #498553;
+    border-radius: 8px;
+    margin: 30px 0 0 8px;
+    color: #FFFFFF;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+
+#facebook:hover {
+    background-color: #E9F3ED;
+    color: #498553;
+}
+
+img {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+#hidden-eye {
+    position: relative;
+    top: -32px;
+    float: right;
+    right: 20px;
+}
+
+#main-img {
+    height: 500px;
+    width: 600px;
+    margin: 90px 0 20px 200px;
+}
+
+#footer {
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(121, 117, 117);
+    margin-top: 60px;
+}
+
+#navbar {
+    padding: 20px 0 30px 0;
+    width: 1900px;
+}
+
+#links {
+    text-align: right;
+    padding-right: 20px;
+}
+
+#title {
+    font-family: 'Secular One', sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    padding-left: 44px;
+}
+
+li {
+    display: inline;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+#user-input {
+    padding-left: 50px;
+}
+
+#quote-heading {
+    margin: 30px 0 30px 0;
+}
+
+#quote-heading p {
+    color: black;
+    font-size: 1.3rem;
+}
+
+#quotes-img {
+    margin: 30px 0 30px 0;
+}
+
+#quote-description {
+    margin: 30px 0 30px 0;
+}
+
+#quotes-form input {
+    width: 400px;
+}
+
+#quote-submit button {
+    height: 50px;
+    width: 400px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #498553;
+    border: 2px solid #498553;
+    color: #FFFFFF;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+
+#quote-submit button:hover {
+    background-color: #E9F3ED;
+    color: #498553;
+}
+
+#show-images {
+    width: 100%;
+    text-align: center;
+}
+
+#quote-card {
+    width: 400px;
+    height: 500px;
+    border: 3px solid #498553;
+    ;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 45px 0 0 40px;
+}
+
+#image img {
+    width: 380px;
+    height: 400px;
+    border-radius: 8px;
+}
+
+#image-description {
+    width: 380px;
+    height: 100px;
+}
+
+#image-description p {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.interface-img {
+    height: 150px;
+    width: 150px;
+}
+
+#interface-content {
+    margin-top: 30px;
+}
+
+#interface-content p {
+    font-size: 2rem;
+    color: black;
+}
+
+.button-hover:hover {
+    background-color: #FFFFFF;
+    color: #498553;
+}
+
+.btn2 {
+    width: 40%;
+    height: 60px;
+    margin: 0 20px 0 120px;
+}
+
+.btn1 {
+    height: 60px;
+    width: 20%;
+    margin: 0 30px 0 150px;
+}
+
+.btn3 {
+    width: 15%;
+    height: 60px;
+    margin: 0 20px 0 860px;
+    font-size: 1.2rem;
+}
+
+#signup-done {
+    text-align: center;
+    flex-direction: column;
+    margin-top: 130px;
+}
+
+.confirmation-h1 {
+    display: inline;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+#signup-done p {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+#signup-done button{
+    margin-left : 0;
+    font-size: 1.2rem;
+}
