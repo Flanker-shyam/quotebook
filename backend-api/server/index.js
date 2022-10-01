@@ -1,140 +1,39 @@
+const startDebugger = require("debug")("app: startup");
+const helmet = require("helmet");
+const registerRoute = require("../routes/Register");
+const loginRoute = require("../routes/Login");
+const quotesRoute = require("../routes/Quotes");
 const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const fileUpload = require("express-fileupload");
-const bcrypt = require('bcrypt');
-var cors = require('cors');
-const saltRounds = 10;
+const connectDB = require("../DataBaseConnect/mongooseDB");
+const db = process.env["MONGO_DB"];
+const domain = process.env["MONGO_DOMAIN"];
+const portdb = process.env["PORT"];
+const dotenv = require("dotenv")
+dotenv.config();
 
 const app = express();
+app.use(helmet());
+app.use('/register', registerRoute);
+app.use('/login', loginRoute);
+app.use('/quotes',quotesRoute);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(fileUpload({
-    limits: { fileSize: 50 * 1024 * 1024 },
-}));
-app.use(cors());
+app.use(express.static("public"));
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
-mongoose.connect("mongodb://localhost:27017/usersDB", function (err) {
+// app.get('env'); //to get the current working enviornment of the app, by default it is development.
+// to set this from terminal , use -- export NODE_ENV=production   or any other you want
+
+const port = process.env.PORT || 3001;
+
+connectDB(`mongodb://${domain}/${db}`);
+// connectDB("mongodb://localhost:27017/usersDB");
+app.listen(port, (err) => {
     if (err) {
-        console.log(err);
-    } else {
-        console.log("connection on 27017 is successfull");
+        startDebugger(err);
     }
-});
-
-const usersSchema = ({
-    username: String,
-    password: String
-});
-
-const User = new mongoose.model("User", usersSchema);
-
-const imageScheme = ({
-    imageUrl: String,
-    description: String
-});
-
-const Image = new mongoose.model("Image", imageScheme);
-
-app.post("/register", (req, res) => {
-    bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-        if (err) {
-            console.log(err);
-        } else {
-            const newUser = new User({
-                username: req.body.username,
-                password: hash
-            });
-
-            newUser.save(err => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    res.json({ code: "100" });
-                }
-            });
-        }
-    });
-})
-
-app.post("/login", (req, res) => {
-
-    User.findOne({ username: req.body.username }, (err, foundUser) => {
-        if (!err) {
-            if (foundUser) {
-                bcrypt.compare(req.body.password, foundUser.password, function (err, result) {
-                    if (!err) {
-                        if (result === true) {
-                            res.json({ message: "success" });
-                            return;
-                        } else {
-                            res.json({ message: "failure" });
-                            return;
-                        }
-                    } else {
-                        console.log(err);
-                    }
-                });
-            }
-            else {
-                res.json({ message: "failure" });
-                return;
-            }
-        }
-        else {
-            console.log(err);
-        }
-    });
-
-});
-
-app.post("/quotes", function (req, res) {
-    const uploadedFile = req.files.image;
-    const description = req.body.description;
-
-    const path = "/home/flanker/Desktop/webDevelopment/login-signup-react/login-frontend/public/files/" + uploadedFile.name;
-    const pathToSave = "../files/"+ uploadedFile.name;
-    uploadedFile.mv(path, (err) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            console.log("uploaded success");
-        }
-    });
-
-    const newImage = new Image({
-        imageUrl: pathToSave,
-        description: description
-    })
-    newImage.save(err => {
-        if (err) {
-            return res.status(500).send(err);
-        }
-        else {
-            return res.send({ status: "Success", path: path });
-        }
-    });
-});
-
-app.get("/quotes", function(req,res){
-    Image.find({}, function(err, foundImages){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.send(foundImages);
-        }
-    })
-});
-
-app.listen(3001, (err) => {
-    if (err) {
-        console.log(err);
-    }
-
     else {
         console.log("connection established successfully");
+        // startDebugger("connection established successfully");
     }
 });
