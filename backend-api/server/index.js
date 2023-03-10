@@ -26,8 +26,8 @@ app.set('views', './views');
 
 const port = process.env.PORT || 3001;
 
-connectDB(`mongodb://${domain}/${db}`);
-// connectDB("mongodb://localhost:27017/usersDB");
+// connectDB(`mongodb://${domain}/${db}`);
+connectDB("mongodb://localhost:27017/usersDB");
 app.listen(port, (err) => {
     if (err) {
         startDebugger(err);
